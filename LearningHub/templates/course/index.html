@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}FarmConnect LearningHub{% endblock title %}
+
+{% block head %}
+  <!-- Add necessary meta tags for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Add a link to a CSS file for styling (assuming you have a CSS file) -->
+ 
+  <style>
+    /* Additional inline styles for responsiveness and page styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .jumbotron {
+      background-color: #ffffff;
+      color: #4e1515;
+    }
+
+    .jumbotron h1 {
+      font-size: 1.8rem;
+    }
+
+    .lead {
+      font-size: 1.5rem;
+    }
+
+    .main-content {
+      margin-top: 30px;
+      
+      background-color: rgb(233, 241, 241);
+    }
+
+    .session {
+      margin-top: 10px;
+    }
+
+    /* Add any additional styles as needed */
+    .session-columns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+
+    .session-column {
+      flex-basis: 30%;
+      text-align: center;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid #87aed6;
+      border-radius: 5px;
+      
+    }
+
+    .explore-button {
+      margin-top: 20px;
+      margin-left: 40%;
+      
+    }
+  </style>
+{% endblock head %}
+
+{% block body %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to FarmConnect LearningHub - Your Premier Farmers Learning Platform!</h1>
+      <hr>
+      <p >At FarmConnect LearningHub, we are dedicated to cultivating a community of empowered farmers, providing a space where knowledge takes root and agriculture thrives. Whether you're a seasoned farmer or just beginning your journey in agriculture, 
+        our platform is designed to be your go-to resource for learning, sharing, and growing.</p>
+    </div>
+  </div>
+
+  <div class="session main-content">
+    <h2 style="text-align: center;">Sessions of Agriculture</h2>
+    <div class="session-columns">
+      <div class="session-column">
+        <h3>Planting Techniques</h3>
+        <p>Learn about the latest planting techniques to optimize crop yield.</p>
+      </div>
+      <div class="session-column">
+        <h3>Livestock Management</h3>
+        <p>Explore best practices for managing and caring for livestock on your farm.</p>
+      </div>
+      <div class="session-column">
+        <h3>Crop Protection</h3>
+        <p>Understand methods and strategies for protecting crops from diseases and pests.</p>
+      </div>
+    </div>
+
+    <div class="explore-button">
+      <a href="{% url 'courses' %}" class="btn btn-primary btn-lg">Explore Our Courses Now</a><br><br>
+    </div>
+  </div>
+
+{% endblock body %}

@@ -1,0 +1,60 @@
+{% extends 'Crops/layout.html' %}
+{% load static %}
+{% block title %}
+All Birds
+{% endblock title %}
+
+{% block contents %}
+
+  <section class="container">
+    <div class=" p-3">
+    </div>
+    <div class="row">
+      {%if Crops %}     
+       <div class="col-lg-12">
+        <h2 class="title-1 m-b-25">All Crops</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Imm.Date</th>
+                                                <th>Exp.Harv.Date</th>
+                                                <th class="text-right">Total</th>
+                                                <th>Manage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for crops in Crops  %}
+                                                <tr>
+                                                <td> <img src="{{Crops.image.url}}" width=50 height=50 alt="image" class="  img-fluid"> </td>
+                                                <td>{{crops.name |capfirst}}</td>
+                                                <td>{{crops.types |capfirst}}</td>
+                                                <td>{{crops.immersiveDate}}</td>
+                                                <td>{{crops.HarvestDate}}</td>
+                                                <td class="text-right">{{crops.total}}</td>
+                                                <td><span><a href="{% url 'CropManagement:edit_crops' pk=crops.id %}"><i class="fas text-info fa-edit"></i></a></span> &emsp; <span><a href="{% url 'CropManagement:delete_crops' pk=crops.id %}"><i class="fas text-danger fa-trash"></i></a></span></td>
+                                            
+                                            </tr>
+                                            
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+      </div>
+     
+
+      {% else %}
+      <div>
+          <p class="display-4 ml-4 text-danger">Crops Database Empty</p><br>
+          
+          <a href="{% url 'CropManagement:create_crops' %}" class="btn ml-4  btn-block text-center btn-outline-info">Add Crops</a>
+      </div>
+      {% endif %}
+    
+    </div>
+  </section>
+
+{% endblock contents  %}

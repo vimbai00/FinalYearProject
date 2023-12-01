@@ -1,0 +1,63 @@
+{% load static %}
+<aside class="menu-sidebar d-none d-lg-block bg-light text-dark">
+            <div class="logo bg-primary text-light">
+                <a >
+                    FarmConnect Crop Management
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub ">
+                            <a class="js-arrow" href="/dashboard" >
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            
+                        </li>
+                        <li>
+                            <a href="{% url 'CropManagement:all_Fields' %}">
+                                <i class="fas fa-chart-bar"></i>Field</Fieldset></a>
+                        </li>
+                         <li class="has-sub">
+                            <a class="js-arrow" href="#"><i class="far fa-copy"></i>Farms</a>
+                                <a href=" {% url 'CropManagement:create_Farm' %}"> <i class="fas fa-plus"> </i> New Farm</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                              {% for d in farm  %}
+                                <li>
+                                    <a href="{% url 'CropManagement:Farm_single' pk=d.id %}">{{d.name}} </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url 'CropManagement:all_staff' %}">
+                               <i class="fas fa-user"></i>Staff / Workers</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'CropManagement:all_Crops' %}">
+                                <i class="fas fa-archive"></i>Crops Record</a>
+                        </li>
+
+                         <li>
+                            <a href="{% url 'CropManagement:crop_sales' %}">
+                                <i class="far fa-folder"></i>Sales</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'CropManagement:debts' %}">
+                                <i class="fas fa-database"></i>Credit Sales</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'CropManagement:harvests' %}">
+                                <i class="fas fa-clock"></i>Harvest Timeline</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'supply-chain_home'  %}">
+                                <i class="fas fa-arrow-left"></i>Go Back to Home</a>
+                        </li>
+                        
+                      
+                    </ul>
+                </nav>
+            </div>
+        </aside>
