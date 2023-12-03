@@ -4,7 +4,10 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', "django-insecure-()qai@j-&r@d7h$b8b(pe=nj2r_&%0)u%rmm_d14dd^y88s36#")
@@ -155,8 +158,6 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATIC_URL = '/static/'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
