@@ -1,27 +1,18 @@
 
 from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-()qai@j-&r@d7h$b8b(pe=nj2r_&%0)u%rmm_d14dd^y88s36#"
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', "django-insecure-()qai@j-&r@d7h$b8b(pe=nj2r_&%0)u%rmm_d14dd^y88s36#")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = []
-import os 
 
 
 # Application definition
@@ -53,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'Discussion_forum',
    'whitenoise.runserver_nostatic',
+    
  
 ]
 
@@ -136,21 +128,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    # other directories if any
-]
-
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
 LOGIN_REDIRECT_URL = 'supply-chain_home'
 LOGIN_URL = 'login'
 
@@ -179,15 +156,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#settings.py
-#AUTHENTICATION_BACKENDS = [
-    #'MarketPlace.backends.GroupRedirectBackend',
-    #'django.contrib.auth.backends.ModelBackend',
-#]
 
-#LOGIN_REDIRECT_URL='/afterlogin'
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
